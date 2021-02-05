@@ -9,6 +9,9 @@ class Showing extends Model
 {
     use HasFactory;
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         "reference",
         "film_id",
@@ -17,4 +20,18 @@ class Showing extends Model
     ];
 
     protected $dates = ['showing_at'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function Theatre() {
+        return $this->belongsTo(Theatre::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function Film() {
+        return $this->belongsTo(Film::class);
+    }
 }

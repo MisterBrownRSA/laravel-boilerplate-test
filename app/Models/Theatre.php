@@ -15,4 +15,15 @@ class Theatre extends Model
     ];
 
     public $timestamps = false;
+
+    public function Cinema() {
+        return $this->belongsTo(Cinema::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
+    public function Showings() {
+        return $this->hasMany(Showing::class);
+    }
 }
