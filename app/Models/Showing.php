@@ -16,10 +16,13 @@ class Showing extends Model
         "reference",
         "film_id",
         "theatre_id",
-        "bookinsgs"
     ];
 
     protected $dates = ['showing_at'];
+
+    private $max_seats = 30;
+
+//  RELATIONSHIPS
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -33,5 +36,19 @@ class Showing extends Model
      */
     public function Film() {
         return $this->belongsTo(Film::class);
+    }
+
+    public function Bookings() {
+        return $this->hasMany(Booking::class);
+    }
+
+//  MUTATORS
+
+    public function getMaxSeatsAttribute($value) {
+        return $this->max_seats;
+    }
+
+    public function getAvailableSeatsAttribute($value) {
+        return $this->max_seats - $this->Bookings->count();
     }
 }

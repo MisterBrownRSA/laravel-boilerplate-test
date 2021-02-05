@@ -18,7 +18,6 @@ class CreateShowingsTable extends Migration
             $table->string('reference');
             $table->integer('film_id')->unsigned();
             $table->integer('theatre_id')->unsigned();
-            $table->integer('bookings')->unsigned();
             $table->timestamp('showing_at');
             $table->timestamps();
         });

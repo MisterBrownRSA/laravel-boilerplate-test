@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Showing;
 
 /**
  * Class HomeController.
@@ -14,6 +15,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend.index');
+        $showings = Showing::all()->load('film');
+
+        return view('frontend.index')->with(['showings' => $showings]);
     }
 }
