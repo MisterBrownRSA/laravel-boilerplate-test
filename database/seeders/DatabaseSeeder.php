@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CinemaSeeder::class);
         $this->call(TheatreSeeder::class);
         $this->call(FilmSeeder::class);
+        $this->call(ShowingSeeder::class);
 
         Model::reguard();
     }
