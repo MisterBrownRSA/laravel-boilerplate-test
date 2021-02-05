@@ -15,6 +15,7 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->string('reference');
             $table->integer('user_id');
             $table->integer('showing_id');
             $table->string('status'); //string for now, since we won't be using ENUM's right now.

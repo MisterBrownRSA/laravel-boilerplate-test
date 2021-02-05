@@ -19,10 +19,8 @@ class ShowingSeeder extends Seeder
         $faker = Faker::create();
 
         Showing::create([
-            "reference" => Str::uuid(),
             "film_id" => 1,
             "theatre_id" => 1,
-            "bookings" => 0,
             "showing_at" => $faker->dateTimeBetween($startDate = 'now', $endDate = '+ 2 days'),
         ]);
     }

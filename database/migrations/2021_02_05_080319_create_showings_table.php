@@ -15,7 +15,6 @@ class CreateShowingsTable extends Migration
     {
         Schema::create('showings', function (Blueprint $table) {
             $table->id();
-            $table->string('reference');
             $table->integer('film_id')->unsigned();
             $table->integer('theatre_id')->unsigned();
             $table->timestamp('showing_at');

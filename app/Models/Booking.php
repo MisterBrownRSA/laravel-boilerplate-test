@@ -13,6 +13,7 @@ class Booking extends Model
      * @var string[]
      */
     protected $fillable = [
+        'reference',
         'user_id',
         'showing_id',
         'status'

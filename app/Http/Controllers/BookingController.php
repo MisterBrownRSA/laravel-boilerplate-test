@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\Showing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 class BookingController extends Controller
 {
@@ -21,15 +23,21 @@ class BookingController extends Controller
     {
         //TODO:: validation - skipping this step to save time.
 
-        for ($i = 1; $i <= (int) $request->input('tickets'); $i++) {
+        $bookings = new Collection();
+
+        for ($i = 1; $i <= (int)$request->input('tickets'); $i++) {
             $booking = Booking::create([
+                'reference' => Str::uuid(),
                 'user_id' => $request->input('user'),
                 'showing_id' => $showing->id,
                 'status' => 'test',
             ]);
+
+            $booking->save();
+
+            $bookings->add($booking);
         }
 
-        $booking->save();
-        return $booking;
+        return $bookings;
     }
 }
