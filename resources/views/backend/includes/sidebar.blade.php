@@ -21,10 +21,37 @@
         <li class="c-sidebar-nav-item">
             <x-utils.link
                 class="c-sidebar-nav-link"
-                :href="route('admin.cinema')"
-                :active="activeClass(Route::is('admin.cinema'), 'c-active')"
+                :href="route('admin.cinemas')"
+                :active="activeClass(Route::is('admin.cinemas'), 'c-active')"
                 icon="c-sidebar-nav-icon cil-address-book"
-                :text="__('Cinema')" />
+                :text="__('Cinemas')" />
+        </li>
+
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.theatres')"
+                :active="activeClass(Route::is('admin.theatres'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-calendar"
+                :text="__('Theatres')" />
+        </li>
+
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.showings')"
+                :active="activeClass(Route::is('admin.showings'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-calendar"
+                :text="__('Showings')" />
+        </li>
+
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.bookings')"
+                :active="activeClass(Route::is('admin.bookings'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-calendar"
+                :text="__('Bookings')" />
         </li>
 
         @if (

@@ -18,6 +18,10 @@ class BookingController extends Controller
         return view('frontend.booking.index')->with(['bookings' => $bookings]);
     }
 
+    public function admin(Request $request) {
+        return view('backend.auth.booking.index');
+    }
+
     public function show(Request $request, Showing $showing)
     {
         return view('frontend.new_booking')->with(['showing' => $showing]);

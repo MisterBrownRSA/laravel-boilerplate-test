@@ -2,23 +2,23 @@
 
 namespace App\Http\Livewire\Backend;
 
-use App\Models\Cinema;
+use App\Models\Showing;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\TableComponent;
 use Rappasoft\LaravelLivewireTables\Traits\HtmlComponents;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
 /**
- * Class CinemasTable.
+ * Class ShowingsTable.
  */
-class CinemasTable extends TableComponent
+class ShowingsTable extends TableComponent
 {
     use HtmlComponents;
 
     /**
      * @var string
      */
-    public $sortField = 'name';
+    public $sortField = 'id';
 
     /**
      * @var array
@@ -33,7 +33,7 @@ class CinemasTable extends TableComponent
      */
     public function query(): Builder
     {
-        return Cinema::query();
+        return Showing::with(['film', 'theatre.cinema']);
     }
 
     /**
@@ -42,10 +42,10 @@ class CinemasTable extends TableComponent
     public function columns(): array
     {
         return [
-            Column::make(__('Name'), 'name')
+            Column::make(__('Film Name'), 'film.name')
                 ->searchable()
                 ->sortable(),
-            Column::make('Location', 'location')->sortable()
+            Column::make('Showing At', 'showing_at')->sortable()
         ];
     }
 }
