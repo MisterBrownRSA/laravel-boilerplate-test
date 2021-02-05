@@ -27,6 +27,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call(AuthSeeder::class);
         $this->call(AnnouncementSeeder::class);
+        $this->call(CinemaSeeder::class);
+        $this->call(TheatreSeeder::class);
+        $this->call(FilmSeeder::class);
 
         Model::reguard();
     }

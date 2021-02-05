@@ -15,7 +15,6 @@ class FilmSeeder extends Seeder
      */
     public function run()
     {
-        //TODO:: make api call to films
         $response = Http::post('http://www.omdbapi.com/?apikey=51fd2bc1&type=movie&s=batman');
         $json = $response->json();
 

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Theatre;
 use Illuminate\Database\Seeder;
 
 class TheatreSeeder extends Seeder
