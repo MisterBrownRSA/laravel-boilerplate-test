@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\TermsController;
 use Tabuna\Breadcrumbs\Trail;
@@ -13,6 +14,8 @@ Route::get('/', [HomeController::class, 'index'])
     ->breadcrumbs(function (Trail $trail) {
         $trail->push(__('Home'), route('frontend.index'));
     });
+
+Route::get('/booking/new/{showing}', [BookingController::class, 'index']);
 
 //No need to have terms in demo application
 //Route::get('terms', [TermsController::class, 'index'])
