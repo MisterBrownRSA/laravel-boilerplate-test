@@ -14,3 +14,5 @@ use App\Http\Controllers\BookingController;
 */
 // Really don't want to take the time to set up passport right now.
 Route::post('/book/{showing}', [BookingController::class, 'create']);
+
+Route::post('/booking/delete', [BookingController:: class, 'delete']);
