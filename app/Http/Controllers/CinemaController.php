@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class CinemaController extends Controller
 {
     public function index() {
-        return true;
+        return view('backend.auth.cinema.index');
     }
 }

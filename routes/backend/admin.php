@@ -15,5 +15,5 @@ Route::get('dashboard', [DashboardController::class, 'index'])
 Route::get('cinema', [CinemaController::class, 'index'])
 ->name('cinema')
 ->breadcrumbs(function (Trail $trail) {
-    $trail->push('Cinema', route('admin.cinema'));
+    $trail->parent('admin.dashboard')->push('Cinema', route('admin.cinema'));
 });
