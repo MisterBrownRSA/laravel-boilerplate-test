@@ -25,6 +25,10 @@ class BookingController extends Controller
 
         $bookings = new Collection();
 
+        if ($showing->max_seats < $showing->available_seats + $request->input('tickets')) {
+            return response('Not enough seats', 400);
+        }
+
         for ($i = 1; $i <= (int)$request->input('tickets'); $i++) {
             $booking = Booking::create([
                 'reference' => Str::uuid(),

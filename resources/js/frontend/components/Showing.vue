@@ -14,7 +14,7 @@
                     showing.showing_at | moment("dddd, D MMMM YYYY @ HH:mm:ss")
                 }} ({{ showing.showing_at | moment("from", "now") }})
             </li>
-    </ul>
+        </ul>
         <div class="card-body" v-if="auth">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="How many tickets"
@@ -34,7 +34,7 @@
 export default {
     name: 'Showing',
     props: ['showing', 'auth', 'user'],
-    data: function() {
+    data: function () {
         return {
             tickets: 0,
         }
@@ -46,7 +46,21 @@ export default {
                 tickets: this.tickets
             }).then((response) => {
                 //since we're not really dealing with reactivity for this example, I'll just reload the page instead.
-                location.reload();
+                let reference = _.map(response.data, 'reference');
+                Swal.fire(
+                    'Tickets Booked!',
+                    'Your references are ' + reference.join("<br>") + '!',
+                    'success'
+                ).then((response) => {
+                    location.reload();
+                })
+            }).catch((response) => {
+                console.log(response);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Something went wrong.',
+                    text: response.response.data
+                })
             });
         }
     }
