@@ -18,7 +18,9 @@ class Showing extends Model
         "theatre_id",
     ];
 
-    protected $dates = ['showing_at'];
+    protected $casts = [
+        'showing_at' => 'datetime'
+    ];
 
     private $max_seats = 30;
 
@@ -50,5 +52,9 @@ class Showing extends Model
 
     public function getAvailableSeatsAttribute($value) {
         return $this->max_seats - $this->Bookings->count();
+    }
+
+    public function getShowingAtAttribute($value) {
+        return $value;
     }
 }

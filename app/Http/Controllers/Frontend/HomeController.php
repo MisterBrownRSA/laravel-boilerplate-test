@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $showings = Showing::all()->load('film');
+        $showings = Showing::all()->load(['film', 'theatre.cinema']);
 
         return view('frontend.index')->with(['showings' => $showings]);
     }
