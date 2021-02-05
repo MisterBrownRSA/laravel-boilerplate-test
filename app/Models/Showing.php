@@ -22,6 +22,8 @@ class Showing extends Model
         'showing_at' => 'datetime'
     ];
 
+    protected $appends = ['max_seats', 'available_seats'];
+
     private $max_seats = 30;
 
 //  RELATIONSHIPS
