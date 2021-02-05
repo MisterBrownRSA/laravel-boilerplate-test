@@ -7,7 +7,7 @@
         <div class="row">
             @foreach ($showings as $showing)
                 <div class="col-4">
-                    <Showing :showing="{{ $showing->toJson() }}" :auth="{{ Auth::check() }}"></Showing>
+                    <Showing :showing="{{ $showing->toJson() }}" :auth="{{ Auth::check() ? 'true' : 'false' }}" user="{{ Auth::check() ? json_encode(Auth::user()->only('id')) : 'false' }}"></Showing>
                 </div>
             @endforeach
         </div>
