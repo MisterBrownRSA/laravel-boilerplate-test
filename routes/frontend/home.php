@@ -15,7 +15,9 @@ Route::get('/', [HomeController::class, 'index'])
         $trail->push(__('Home'), route('frontend.index'));
     });
 
-Route::get('/booking/new/{showing}', [BookingController::class, 'index']);
+Route::get('/booking/new/{showing}', [BookingController::class, 'show']);
+
+Route::get('/bookings', [BookingController::class, 'index']);
 
 //No need to have terms in demo application
 //Route::get('terms', [TermsController::class, 'index'])

@@ -53,7 +53,7 @@ class Showing extends Model
     }
 
     public function getAvailableSeatsAttribute($value) {
-        return $this->max_seats - $this->Bookings->count();
+        return $this->max_seats - $this->Bookings->where('status', 'booked')->count();
     }
 
     public function getShowingAtAttribute($value) {

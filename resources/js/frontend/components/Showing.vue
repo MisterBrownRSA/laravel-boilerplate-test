@@ -55,7 +55,6 @@ export default {
                     location.reload();
                 })
             }).catch((response) => {
-                console.log(response);
                 Swal.fire({
                     icon: 'error',
                     title: 'Something went wrong.',
