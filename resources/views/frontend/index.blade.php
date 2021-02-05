@@ -3,7 +3,7 @@
 
 @section('content')
     {{--    can either do per cinema/theatre or showings, decided to just do showings for now --}}
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             @foreach ($showings as $showing)
                 <div class="col">
