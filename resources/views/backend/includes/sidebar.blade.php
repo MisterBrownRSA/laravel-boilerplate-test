@@ -18,6 +18,15 @@
                 :text="__('Dashboard')" />
         </li>
 
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.cinema')"
+                :active="activeClass(Route::is('admin.cinema'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-address-book"
+                :text="__('Cinema')" />
+        </li>
+
         @if (
             $logged_in_user->hasAllAccess() ||
             (
