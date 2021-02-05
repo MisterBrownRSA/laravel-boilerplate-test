@@ -1,50 +1,32 @@
-## Laravel Boilerplate (Current: Laravel 8.*) ([Demo](https://demo.laravel-boilerplate.com))
+# Laravel Test
+Using the Laravel Boilerplate, I could easily scaffold everything required including CoreUI Admin panel and authentication.
+The boilerplate already comes served with everything required to easily and quickly initialize this project.
 
-[![Latest Stable Version](https://poser.pugx.org/rappasoft/laravel-boilerplate/v/stable)](https://packagist.org/packages/rappasoft/laravel-boilerplate)
-[![Latest Unstable Version](https://poser.pugx.org/rappasoft/laravel-boilerplate/v/unstable)](https://packagist.org/packages/rappasoft/laravel-boilerplate) 
-<br/>
-[![StyleCI](https://styleci.io/repos/30171828/shield?style=plastic)](https://github.styleci.io/repos/30171828)
-![Tests](https://github.com/rappasoft/laravel-boilerplate/workflows/Tests/badge.svg?branch=master)
-<br/>
-![GitHub contributors](https://img.shields.io/github/contributors/rappasoft/laravel-boilerplate.svg)
-![GitHub stars](https://img.shields.io/github/stars/rappasoft/laravel-boilerplate.svg?style=social)
+The database relationships are pretty straight forward, with no complicated morphologies. 
+A cinema has many theatres, but a theatre can only have one cinema.
+A theatre can have multiple showings, but a showing can only be linked to a single theatre.
+Each showing can have multiple bookings, but a booking can only be linked to a single Showing.
 
-### Demo Credentials
+You will notice that the application uses livewire in the back-end, but uses vue components+axios in the front end. 
+I would personally normally incorporate echo/websockets for instant feedback, but that takes significantly more time to implement.
 
-**Admin:** admin@admin.com  
-**Password:** secret
+I have left comments in the code that a developer might enjoy, and purposefully left a few things out of the procedure.
 
-**User:** user@user.com  
-**Password:** secret
+## Installation
 
-### Official Documentation
+`npm i`
 
-[Click here for the official documentation](http://laravel-boilerplate.com)
+**Take note** it seems to have a problem installing on linux because of fs-events. I'm currently using a windows/laragon environment.
 
-### Slack Channel
+`composer i`
 
-Please join us in our Slack channel to get faster responses to your questions. Get your invite here: https://laravel-5-boilerplate.herokuapp.com
+`cp .env.exmaple .env`
 
-### Introduction
+`php artisan key:generate`
 
-Laravel Boilerplate provides you with a massive head start on any size web application. Out of the box it has features like a backend built on CoreUI with Spatie/Permission authorization. It has a frontend scaffold built on Bootstrap 4. Other features such as Two Factor Authentication, User/Role management, searchable/sortable tables built on my [Laravel Livewire tables plugin](https://github.com/rappasoft/laravel-livewire-tables), user impersonation, timezone support, multi-lingual support with 20+ built in languages, demo mode, and much more.
+`php artisan migrate --seed`
 
-### Issues
+`php artisan storage:link`
 
-If you come across any issues please [report them here](https://github.com/rappasoft/laravel-boilerplate/issues).
+`npm run dev`
 
-### Contributing
-
-Thank you for considering contributing to the Laravel Boilerplate project! Please feel free to make any pull requests, or e-mail me a feature request you would like to see in the future to Anthony Rappa at rappa819@gmail.com.
-
-### Security Vulnerabilities
-
-If you discover a security vulnerability within this boilerplate, please send an e-mail to Anthony Rappa at rappa819@gmail.com, or create a pull request if possible. All security vulnerabilities will be promptly addressed.
-
-### Donations
-
-If you would like to help the continued efforts of this project, any size [donations](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=JJWUZ4E9S9SFG&lc=US&item_name=Laravel%205%20Boilerplate&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted) are welcomed and highly appreciated. Please also consider [sponsoring](https://github.com/sponsors/rappasoft) this project, it would be a huge help.
-
-### License
-
-MIT: [http://anthony.mit-license.org](http://anthony.mit-license.org)
